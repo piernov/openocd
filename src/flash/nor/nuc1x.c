@@ -342,7 +342,7 @@ static int nuc1x_erase(struct flash_bank *bank, int first, int last)
 			retval = target_read_u32(target, NUC1X_FLASH_ISPTRG, &status);
 			if (retval != ERROR_OK)
 				return retval;
-				LOG_DEBUG("status: 0x%" PRIx32 "", status);
+			LOG_DEBUG("status: 0x%" PRIx32 "", status);
 			if (status == 0)
 				break;
 			if (timeout-- <= 0) {
@@ -431,7 +431,7 @@ static int nuc1x_write(struct flash_bank *bank, const uint8_t *buffer,
 			retval = target_read_u32(target, NUC1X_FLASH_ISPTRG, &status);
 			if (retval != ERROR_OK)
 				return retval;
-				LOG_DEBUG("status: 0x%" PRIx32 "", status);
+			LOG_DEBUG("status: 0x%" PRIx32 "", status);
 			if (status == 0)
 				break;
 			if (timeout-- <= 0) {

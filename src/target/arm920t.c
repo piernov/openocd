@@ -247,8 +247,8 @@ static int arm920t_read_cp15_interpreted(struct target *target,
 	uint32_t cp15_opcode, uint32_t address, uint32_t *value)
 {
 	struct arm *arm = target_to_arm(target);
-	uint32_t *regs_p[1];
-	uint32_t regs[2];
+	uint32_t *regs_p[16];
+	uint32_t regs[16];
 	uint32_t cp15c15 = 0x0;
 	struct reg *r = arm->core_cache->reg_list;
 
@@ -297,7 +297,7 @@ int arm920t_write_cp15_interpreted(struct target *target,
 {
 	uint32_t cp15c15 = 0x0;
 	struct arm *arm = target_to_arm(target);
-	uint32_t regs[2];
+	uint32_t regs[16];
 	struct reg *r = arm->core_cache->reg_list;
 
 	/* load value, address into R0, R1 */

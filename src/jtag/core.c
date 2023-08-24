@@ -1114,8 +1114,7 @@ static int jtag_examine_chain(void)
 		if (!tap)
 			return ERROR_FAIL;
 
-		sprintf(buf, "auto%d", tapcount++);
-		tap->chip = strdup(buf);
+		tap->chip = alloc_printf("auto%u", tapcount++);
 		tap->tapname = strdup("tap");
 
 		sprintf(buf, "%s.%s", tap->chip, tap->tapname);
